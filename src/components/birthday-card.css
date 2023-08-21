@@ -1,0 +1,51 @@
+.birthday-card {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px #afafaf;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.txt-container {
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+  width: 50%;
+}
+
+.txt-container input {
+  padding: 7px 15px;
+  /* width: 98%; */
+  outline: none;
+  border-radius: 30px;
+  border: none;
+  background-color: #f0f2f5;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (max-width: 982px) {
+  .actions {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .txt-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
