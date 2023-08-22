@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CardList from "./components/CardList";
-import ImagePicker from "./components/ImagePicker";
 
 export default function App() {
   const cards = [
@@ -41,17 +40,15 @@ export default function App() {
     },
   ];
 
-  const [cardstate, setCardstate] = useState([]);
+  // const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    setCardstate(cards);
-    console.log("UOGIUGILLDHLIKDNIHO:J:ODJ:OJD:OJ");
-  }, []);
+  // useEffect(() => {
+  //   setCards(cards);
+  // }, []);
 
   return (
     <div className="app">
-      <CardList cards={cardstate} setcardState={setCardstate} />
-      {/* <ImagePicker /> */}
+      <CardList cards={cards} />
     </div>
   );
 }

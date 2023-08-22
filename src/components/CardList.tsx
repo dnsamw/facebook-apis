@@ -1,15 +1,15 @@
-// interface Props {
-//   cards: {
-//     image: string;
-//     name: string;
-//     message: string;
-//   }[];
-// }
+interface Props {
+  cards: {
+    image: string;
+    name: string;
+    message: string;
+  }[];
+}
 
 import "./card-list.css";
 import BirthdayCard from "./BirthdayCard";
 
-export default function CardList({ cards, setcardState }) {
+export default function CardList({ cards }: Props) {
   return (
     <div>
       <div className="birthdays-container">
@@ -18,8 +18,7 @@ export default function CardList({ cards, setcardState }) {
         </div>
         <div className="card-list">
           {cards.map((card, index) => (
-            <BirthdayCard card={card} key={index} setcardState={setcardState} />
-
+            <BirthdayCard card={card} key={index} />
           ))}
         </div>
       </div>

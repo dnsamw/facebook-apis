@@ -1,67 +1,30 @@
 interface Props {
   imageUrl: string;
-  selectedImage: string;
-  handleImageChange: Function;
 }
 
 import { ChangeEvent, useEffect, useState } from "react";
 import "./image-picker.css";
 
-export default function ImagePicker({ imageUrl, cards, setcardState }: Props) {
+export default function ImagePicker({ imageUrl }: Props) {
   const [selectedImage, setSelectedImage] = useState("");
-
-  const [inputx, setInputx] = useState("");
-
-  const handleChangeInput = (e) => {
-    setInputx(e.target.value);
-  };
-
-  console.log("URLLLLLLLL", cards.name);
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     console.log(event);
-    const selectedFile = event.target.files
+    const selectedFile = event.target.files[0];
     if (selectedFile && selectedFile.type.startsWith("image/")) {
-      // const reader = new FileReader();
-      // reader.onload = (e) => {
-      //   const terget = e.target;
-      //   if (terget) {
-      //     setSelectedImage(terget.result as string);
-      //   }
-      // };
-      // reader.readAsDataURL(selectedFile);
-      console.log(selectedFile);
-
-      // setcardState((pre) => {
-      //   return pre.map((data) => {
-      //     if (data?.name === cards?.name) {
-      //       console.log(cards.name, "ikikk");
-
-      //       return { ...data, image: event.target.result };
-      //     }
-      //     return data;
-      //   });
-      // });
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const terget = e.target;
+        if (terget) {
+          setSelectedImage(terget.result as string);
+        }
+      };
+      reader.readAsDataURL(selectedFile);
     }
   };
-  // console.log(selectedImage);
-
-  useEffect(() => {
-    setcardState((pre) => {
-      return pre.map((data) => {
-        if (data?.name === cards?.name) {
-          console.log(cards.name);
-
-          return { ...data, a: selectedImage };
-        }
-        return data;
-      });
-    });
-  }, [selectedImage]);
 
   return (
     <div className="App">
-      <h1>{cards?.a}</h1>
       <div className="img-container">
         <div className="content-overlay">
           <label htmlFor="files">
@@ -84,7 +47,7 @@ export default function ImagePicker({ imageUrl, cards, setcardState }: Props) {
             id="files"
             type="file"
             accept="image/*"
-            style={{ visibility: "hidden" }}
+            style={{ opacity: 0 }}
             onChange={handleImageChange}
           />
         </div>
@@ -93,7 +56,6 @@ export default function ImagePicker({ imageUrl, cards, setcardState }: Props) {
           src={selectedImage ? selectedImage : imageUrl}
           alt="Selected Image"
         />
-        <input type="text" onChange={handleChangeInput} value={inputx} />
       </div>
     </div>
   );
