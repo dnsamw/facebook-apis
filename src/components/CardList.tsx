@@ -13,9 +13,9 @@ export default function CardList({ cards }: Props) {
   return (
     <div>
       <div className="birthdays-container">
-        <div className="title-container">
+        {/* <div className="title-container">
           <h1>Today's Birthdays</h1>
-        </div>
+        </div> */}
         <div className="card-list">
           {cards.map((card, index) => (
             <BirthdayCard card={card} key={index} />

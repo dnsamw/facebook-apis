@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardList from "./components/CardList";
+import FBGroupSelector from "./components/FBGroupSelector";
 
 export default function App() {
   const cards = [
@@ -48,6 +49,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <FBGroupSelector />
       <CardList cards={cards} />
     </div>
   );

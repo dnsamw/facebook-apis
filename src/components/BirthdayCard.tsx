@@ -1,14 +1,14 @@
 interface Props {
   card: { image: string; name: string; message: string };
 }
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import CardButton from "./CardButton";
 import ImagePicker from "./ImagePicker";
 import "./birthday-card.css";
 
 export default function BirthdayCard({ card }: Props) {
   const [birthdayMessage, setBirthdayMessage] = useState("");
-  const handleBirthdayMessage = (e) => {
+  const handleBirthdayMessage = (e: ChangeEvent<HTMLInputElement>) => {
     setBirthdayMessage(e.target.value);
   };
 

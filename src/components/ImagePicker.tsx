@@ -8,16 +8,13 @@ import "./image-picker.css";
 export default function ImagePicker({ imageUrl }: Props) {
   const [selectedImage, setSelectedImage] = useState("");
 
-  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event);
-    const selectedFile = event.target.files[0];
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0]; // safe navigation check
     if (selectedFile && selectedFile.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const terget = e.target;
-        if (terget) {
-          setSelectedImage(terget.result as string);
-        }
+        const result = e.target?.result as string;
+        setSelectedImage(result);
       };
       reader.readAsDataURL(selectedFile);
     }
