@@ -10,14 +10,42 @@ body {
 }
 
 .app {
-  padding: 2rem 20%;
+  padding: 2rem 10%;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
+.dashboard {
+  display: flex;
+  gap: 25px;
+}
+
+.left {
+  width: 35%;
+}
+
+.right {
+  width: 65%;
+}
 .title-container {
   padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .group-picker-container {
+    position: relative;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 570px) {

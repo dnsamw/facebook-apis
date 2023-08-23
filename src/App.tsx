@@ -49,8 +49,14 @@ export default function App() {
 
   return (
     <div className="app">
-      <FBGroupSelector />
-      <CardList cards={cards} />
+      <div className="dashboard">
+        <div className="left">
+          <FBGroupSelector />
+        </div>
+        <div className="right">
+          <CardList cards={cards} />
+        </div>
+      </div>
     </div>
   );
 }

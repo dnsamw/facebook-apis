@@ -75,7 +75,7 @@ export default function FBGroupSelector() {
               className="setting-description-text"
               style={{ marginLeft: 15 }}
             >
-              <span>Facebook Groups</span>
+              <span>Your Facebook Groups</span>
             </div>
           </div>
           <div
